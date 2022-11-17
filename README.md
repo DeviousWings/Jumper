@@ -23,6 +23,8 @@ root                    (project root folder)
   +-- __main__.py       (program entry point)
 +-- README.md           (general info)
 ```
+## Help
+https://inventwithpython.com/invent4thed/chapter8.html
 
 ## Required Technologies
 * Python 3.8.0
