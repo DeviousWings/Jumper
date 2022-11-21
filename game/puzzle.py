@@ -8,10 +8,39 @@ import random
 
 class Puzzle:
     def __init__(self):
-        self.wordList = ["ship", "star", "bell", "tree", "bird"]
-        self.wordIndex = random.randint(0, len(self.wordList))
+        wordsList = ["ship", "star", "bell", "tree", "bird"]
+        self.wordList = random.randint(0, len(wordsList))
         self.guess = 0
+        
+    def create_word(self):
+        self.wordList = ["ship", "star", "bell", "tree", "bird"]
 
-    def getGuess(self):
-        while True:
-            print('')
+    def checkWord(self, guess):
+        self.correctLetters = []
+        for x in self.wordList:
+            if guess == x:
+                self.correctLetters.append(x)
+                
+        if guess in self.correctLetters:
+            return True
+        else:
+            return False
+        
+        
+    def completedWord(self):
+        self.correctLetters = []
+        correctWord = []
+        
+         #convert word into list
+        for x in self.wordList:
+            correctWord.append(x)
+        
+        #sort lists so we can check
+        _checker = self.correctLetters.sort()
+        _correct_check = correctWord.sort()
+
+        #checks the word
+        if _checker != _correct_check:
+            return False
+        elif _checker == _correct_check:
+            return self.wordList

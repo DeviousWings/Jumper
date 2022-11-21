@@ -53,10 +53,10 @@ class Jumper:
                         ^^^^^^'''
         ]
     def get_parachute(self):
-        return self.parachute
+        return self.parachute.pop(0)
     
-    def take_parachute(self, parachute):
-        self.parachute.pop
+    def take_parachute(self):
+        self.parachute[0]
 
         
         
