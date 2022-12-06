@@ -5,42 +5,25 @@
 # shoudl have another variable that is identical that has been selected for the puzzle.
 # ["ship", "star", "bell", "tree", "bird"]
 import random
+from game.terminal_service import TerminalService
+
 
 class Puzzle:
     def __init__(self):
-        wordsList = ["ship", "star", "bell", "tree", "bird"]
-        self.wordList = random.randint(0, len(wordsList))
-        self.guess = 0
+        self.terminal_service = TerminalService()
+        self._words = ["ship", "star", "Gas Planet", "Nebula"]
+        self._word_selected = random.choice(self._words)
+        self._word_guess = ['_']* len(self._word_selected)
+        
         
     def create_word(self):
-        self.wordList = ["ship", "star", "bell", "tree", "bird"]
-
-    def checkWord(self, guess):
-        self.correctLetters = []
-        for x in self.wordList:
-            if guess == x:
-                self.correctLetters.append(x)
-                
-        if guess in self.correctLetters:
-            return True
-        else:
-            return False
+        for letter in self.wordGuess:
+            self.terminal_service.write_text(letter)
         
+    def checkWord(self, guess_letter):
+        correct_guess = False
         
-    def completedWord(self):
-        self.correctLetters = []
-        correctWord = []
+        return correct_guess
         
-         #convert word into list
-        for x in self.wordList:
-            correctWord.append(x)
-        
-        #sort lists so we can check
-        _checker = self.correctLetters.sort()
-        _correct_check = correctWord.sort()
-
-        #checks the word
-        if _checker != _correct_check:
-            return False
-        elif _checker == _correct_check:
-            return self.wordList
+    def can_keep_guessing(self):
+        return "_" in self._word_guess
