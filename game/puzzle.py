@@ -11,7 +11,7 @@ from game.terminal_service import TerminalService
 class Puzzle:
     def __init__(self):
         self.terminal_service = TerminalService()
-        self._words = ["ship", "star", "Nebula"]
+        self._words = ["ship", "star", "Gas Planet", "Nebula"]
         self._word_selected = random.choice(self._words)
         self._word_guess = ['_']* len(self._word_selected)
         
@@ -22,6 +22,14 @@ class Puzzle:
         
     def process_guess(self, guess_letter):
         correct_guess = False
+        # Loop throug _word_seleected by index
+        if self._word_selected == guess_letter:
+            # Check if guess_letter = _word_select[index]
+            guess_letter = self._word_guess[self._words]
+            # Set _word_guess[index] = guess_letter
+            self._word_guess[self._words] = guess_letter
+        
+        
         
         return correct_guess
         

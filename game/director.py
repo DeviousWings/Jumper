@@ -25,10 +25,10 @@ class Director:
     def _get_inputs(self):
         
         guess = self._terminal_service.read_text("\nGiess a letter [a-z]: ")
-        self._puzzle.checkWord(guess)
+        self._puzzle.process_guess(guess)
         
     def _do_updates(self):
-        if self._puzzle.checkWord is False:
+        if self._puzzle.process_guess is False:
             self._jumper.remove_parachute_piece
         
     def _do_outputs(self):
