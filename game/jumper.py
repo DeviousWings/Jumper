@@ -2,7 +2,8 @@ from game.terminal_service import TerminalService
 # Does jumper have parachute true or false
 class Jumper:
     def __init__(self):
-        self.parachute = ['____',
+        self.terminal_service = TerminalService()
+        self._parachute = ['____',
                         '/  \ ',
                         '|  |',
                         '\  /',
@@ -12,18 +13,17 @@ class Jumper:
                         '/ \ ',
                         '',
                      '^^^^^^']
-        self.terminal_service = TerminalService()
         
     def draw_jumper(self):
-        for line in self.parachute:
+        for line in self._parachute:
             self.terminal_service.write_text(line)
                     
     def remove_parachute_piece(self):
-        return self.parachute.pop(0)
+        return self._parachute.pop(0)
     
     def has_parachute(self):
-        return len(self.parachute) >= 6
+        return len(self._parachute) >= 6
     
     def parachute_gone(self):
-       self.parachute[0].replac(' O', ' X')
+       self._parachute[0].replace(' O', ' X')
        

@@ -28,11 +28,11 @@ class Director:
         self._puzzle.checkWord(guess)
         
     def _do_updates(self):
-        if self._words.checkWord is False:
+        if self._puzzle.checkWord is False:
             self._jumper.remove_parachute_piece
         
     def _do_outputs(self):
-        if self._words is True:
+        if self._puzzle is True:
             self._terminal_service.write_text('That letter is correct')
         else:
             self._terminal_service.write_text('Sorry that letter is not part of this word.')
@@ -40,7 +40,7 @@ class Director:
         self._terminal_service.write_text(self._jumper.remove_parachute_piece())
 
 
-        if self._words.completedWord():
+        if self._puzzle.can_keep_guessing():
             self._terminal_service.write_text('You got it!')
-            self._terminal_service.write_text(self._words.completedWord())
+            self._terminal_service.write_text(self._puzzle.can_keep_guessing())
             self._is_playing = False
