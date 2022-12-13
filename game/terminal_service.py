@@ -29,3 +29,12 @@ class TerminalService:
             text (string): The text to display.
         """
         print(text)
+        
+    def write_single_line(self, text):
+        """Displays the given text on the screen but doesn't do a new line 
+
+        Args: 
+            self (Screen): An instance of Screen.
+            text (string): The text to display.
+        """
+        print (text, end="")

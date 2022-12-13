@@ -18,18 +18,17 @@ class Puzzle:
         
     def draw_word_guess(self):
         for letter in self._word_guess:
-            self.terminal_service.write_text(letter)
+            self.terminal_service.write_single_line(letter + " ")
+        self.terminal_service.write_text(" ")
         
     def process_guess(self, guess_letter):
         correct_guess = False
         # Loop throug _word_seleected by index
-        if self._word_selected == guess_letter:
-            # Check if guess_letter = _word_select[index]
-            guess_letter = self._word_guess[self._words]
-            # Set _word_guess[index] = guess_letter
-            self._word_guess[self._words] = guess_letter
-        
-        
+        for i in range(len(self._word_selected)):
+            if self._word_selected[i] == guess_letter:
+                # Check if guess_letter = _word_select[index]
+                self._word_guess[i] = guess_letter                
+                correct_guess = True
         
         return correct_guess
         
